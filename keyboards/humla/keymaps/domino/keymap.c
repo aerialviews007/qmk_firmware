@@ -2,6 +2,30 @@
 //#include "autocorrect.h"
 #include "autocorrect_data.h"
 
+const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_RED}
+);
+const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_CYAN}
+);
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_YELLOW}
+);
+/*const rgblight_segment_t PROGMEM my_layer4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_GREEN}
+);*/
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_layer1_layer,
+    my_layer2_layer,
+    my_layer3_layer/*,
+    my_layer4_layer*/
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = my_rgb_layers;
+}
+
 const uint16_t PROGMEM escape[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM tab[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM delete[] = {KC_Y, KC_SCLN, COMBO_END};
@@ -14,14 +38,24 @@ combo_t key_combos[] = {
   COMBO(quote, KC_QUOT),
 };
 
-
-
 enum layers {
     _COLEMAK,
     _NUMSYM,
     _MSFN
     //_SET
 };
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(1, layer_state_cmp(state, _COLEMAK));
+    return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(2, layer_state_cmp(state, _NUMSYM));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _MSFN));
+    //rgblight_set_layer_state(4, layer_state_cmp(state, _SET));
+    return state;
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*

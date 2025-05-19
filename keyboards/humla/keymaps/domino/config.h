@@ -5,3 +5,7 @@
 #define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+
+#define WS2812_DI_PIN GP25
+#define RGBLIGHT_LED_COUNT 1
+#define RGBLIGHT_LAYERS
