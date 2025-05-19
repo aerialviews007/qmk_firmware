@@ -15,11 +15,6 @@ combo_t key_combos[] = {
 };
 
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record)  {
-  return process_autocorrect(keycode, record);
-};
-
-
 
 enum layers {
     _COLEMAK,
@@ -38,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |              |      |      |      |      |      |
  * |Shft/A| Ctl/R| Alt/S| CMD/T|   G  |              |   M  | CMD/N| Alt/E| Ctl/I|Shft/O|
  * |------+------+------+------+------|              |------+------+------+------+------|
- * |      |      |      |      |      |              |      |      |      |    Quote    |
+ * |     Tab     |      |      |      |              |      |      |      |    Quote    |
  * |   Z  |   X  |   C  |   D  |   V  |              |   K  |   H  |   ,  |   .  |   /  |
  * `------+------+------+------+------+--------------+------+------+------+------+------'
  *                      | Fn/Ms|  SPC | BSPC |  ENT  | LSFT |NumSym|
