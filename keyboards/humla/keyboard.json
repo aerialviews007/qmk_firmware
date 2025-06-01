@@ -10,11 +10,16 @@
         "console": false,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": true,
+        "rgblight": true
     },
     "matrix_pins": {
         "rows": [ "GP22", "GP20", "GP23", "GP21"],
         "cols": ["GP4", "GP29", "GP28", "GP27", "GP26", "GP5", "GP6", "GP7", "GP8", "GP9"]
+    },
+    "ws2812": {
+        "pin": "GP25",
+        "driver": "vendor"
     },
     "url": "https://github.com/jimmerricks/humla",
     "usb": {

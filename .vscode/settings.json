@@ -30,5 +30,6 @@
     },
     "clangd.arguments": [
         "--header-insertion=never"
-    ]
+    ],
+    "idf.pythonInstallPath": "/usr/local/bin/python3"
 }
