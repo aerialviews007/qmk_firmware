@@ -31,7 +31,6 @@ const uint16_t PROGMEM tab[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM delete[] = {KC_Y, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM backslash[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM quote[] = {KC_DOT, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM mute[] = {KC_VOLU, KC_VOLD, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -39,8 +38,7 @@ combo_t key_combos[] = {
   COMBO(tab, KC_TAB),
   COMBO(delete, KC_DEL),
   COMBO(backslash, KC_BSLS),
-  COMBO(quote, KC_QUOT),
-  COMBO(mute, KC_MUTE)
+  COMBO(quote, KC_QUOT)
 };
 
 enum layers {
@@ -88,8 +86,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|              |------+------+------+------+------|
  * |   !  |   @  |   #  |   $  |   %  |              |   ^  |   &  |   *  |   (  |   )  |
  * |------+------+------+------+------|              |------+------+------+------+------|
- * |     Mute    |      |      |      |              |      |      |      |      |      |
- * | VolUp|VolDwn|   `  |   ~  |   _  |              |   -  |   +  |   =  |   [  |   ]  |
+ * |      |      |      |      |      |              |      |      |      |      |      |
+ * |BKSLSH| PIPE |   `  |   ~  |   _  |              |   -  |   +  |   =  |   [  |   ]  |
  * `------+------+------+------+------+--------------+------+------+------+------+------'
  *                      | TRNS | TRNS | TRNS | TRNS  | TRNS | TRNS |
  *                      `------------------------------------------'
@@ -98,26 +96,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_NUMSYM] = LAYOUT(
   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
   KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                 KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,  KC_RPRN,
-  KC_VOLU, KC_VOLD, KC_GRV, KC_TILD, KC_UNDS,                  KC_MINS, KC_PLUS,  KC_EQL, KC_LBRC,  KC_RBRC,
+  KC_BSLS, KC_PIPE, KC_GRV, KC_TILD, KC_UNDS,                  KC_MINS, KC_PLUS,  KC_EQL, KC_LBRC,  KC_RBRC,
                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS
 ),
 /*
  * MOUSE & FUNCTION
  * ,----------------------------------.              ,----------------------------------.
- * |  F1  |  F2  |  F3  |  F4  |      |              | MSWUP|      | MSUP |      |ScrnCp|
+ * |  F1  |  F2  |  F3  |  F4  | VolUp|              | MSWUP|      | MSUP |      |ScrnCp|
  * |------+------+------+------+------|              |------+------+------+------+------|
- * |  F5  |  F6  |  F7  |  F8  |      |              |MSWDWN| MSLF | MSDW | MSRT |      |
+ * |  F5  |  F6  |  F7  |  F8  |VolDwn|              |MSWDWN| MSLF | MSDW | MSRT |      |
  * |------+------+------+------+------|              |------+------+------+------+------|
- * |  F9  |  F10 |  F11 |  F12 |      |              |  UP  |  DWN |  LFT |  RT  | FrcQt|
+ * |  F9  |  F10 |  F11 |  F12 | Mute |              |  UP  |  DWN |  LFT |  RT  | FrcQt|
  * `------+------+------+------+------+--------------+------+------+------+------+------'
  *                      |      |      |      | LCLK  | RCLK |      |
  *                      `------------------------------------------'
  */
 
  [_MSFN] = LAYOUT(
-  KC_F1,  KC_F2,   KC_F3,   KC_F4,   KC_NO,                   MS_WHLU, KC_NO,    MS_UP,   KC_NO,   LSG(KC_4),
-  KC_F5,  KC_F6,   KC_F7,   KC_F8,   KC_NO,                   MS_WHLD, MS_LEFT,  MS_DOWN, MS_RGHT, KC_NO,
-  KC_F9,  KC_F10,  KC_F11,  KC_F12,  KC_NO,                   KC_UP, KC_DOWN,  KC_LEFT, KC_RGHT,   LAG(KC_ESC),
+  KC_F1,  KC_F2,   KC_F3,   KC_F4,   KC_VOLU,                   MS_WHLU, KC_NO,    MS_UP,   KC_NO,   LSG(KC_4),
+  KC_F5,  KC_F6,   KC_F7,   KC_F8,   KC_VOLD,                   MS_WHLD, MS_LEFT,  MS_DOWN, MS_RGHT, KC_NO,
+  KC_F9,  KC_F10,  KC_F11,  KC_F12,  KC_MUTE,                   KC_UP, KC_DOWN,  KC_LEFT, KC_RGHT,   LAG(KC_ESC),
                             KC_TRNS, KC_TRNS, KC_TRNS, MS_BTN1, MS_BTN2,   KC_NO
 ),
 /*
